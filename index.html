@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LankaStay | Sri Lanka Boarding Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-stage" aria-hidden="true">
+    <div class="bg-orb orb-one"></div>
+    <div class="bg-orb orb-two"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <div class="login-overlay" id="loginOverlay">
+    <section class="login-card">
+      <div class="brand-line">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span class="brand-name">LankaStay</span>
+      </div>
+
+      <p class="eyebrow">Member login</p>
+      <h1>Find trusted boarding places across Sri Lanka</h1>
+      <p class="intro">Use the demo account below to access the experience.</p>
+
+      <div class="demo-credentials">
+        <p><strong>Email:</strong> avishka@gmail.com</p>
+        <p><strong>Password:</strong> avishka2002</p>
+      </div>
+
+      <form class="login-form" id="loginForm" novalidate>
+        <label class="field">
+          <span>Email</span>
+          <input id="email" name="email" type="email" placeholder="avishka@gmail.com" autocomplete="email" required>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <div class="password-wrap">
+            <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+            <button class="toggle-password" id="togglePassword" type="button" aria-label="Show password">Show</button>
+          </div>
+        </label>
+
+        <div class="form-row">
+          <label class="remember">
+            <input type="checkbox" name="remember" checked>
+            <span>Keep me signed in</span>
+          </label>
+          <a href="#featured" class="text-link">Preview site</a>
+        </div>
+
+        <button class="submit-btn" type="submit">Enter LankaStay</button>
+        <p class="status-message" id="statusMessage" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+
+  <div class="site-shell hidden" id="siteShell">
+    <header class="topbar">
+      <a href="#" class="logo">
+        <span class="logo-dot"></span>
+        <span>LankaStay</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#featured">Featured</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="ghost-btn" id="reopenLogin" type="button">Member Login</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Sri Lanka boarding finder</p>
+          <h2>Professional boarding-place search for students, workers, and long-stay travellers.</h2>
+          <p class="hero-text">
+            Explore curated boarding options near Colombo, Kandy, Galle, and Jaffna with verified amenities,
+            host reviews, and commute-friendly neighborhoods.
+          </p>
+
+          <div class="search-panel">
+            <div class="search-chip">Colombo 03</div>
+            <div class="search-chip">Private room</div>
+            <div class="search-chip">Monthly budget</div>
+            <button class="primary-btn" type="button">Search Listings</button>
+          </div>
+
+          <div class="hero-stats">
+            <article>
+              <strong>1,240+</strong>
+              <span>boarding places listed</span>
+            </article>
+            <article>
+              <strong>320+</strong>
+              <span>verified hosts</span>
+            </article>
+            <article>
+              <strong>24/7</strong>
+              <span>support for members</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="hero-slider" id="heroSlider">
+            <div class="slider-slide">
+              <img src="https://images.unsplash.com/photo-1542400994-6d9b9dcefadd?auto=format&fit=crop&w=1200&q=80" alt="Colombo City">
+              <div class="slider-overlay">
+                <h3>Colombo Hub</h3>
+                <p>Urban boarding with rooftop views.</p>
+              </div>
+            </div>
+            <div class="slider-slide">
+              <img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1200&q=80" alt="Sigiriya Area">
+              <div class="slider-overlay">
+                <h3>Heritage Stay</h3>
+                <p>Quiet environments near landmarks.</p>
+              </div>
+            </div>
+            <div class="slider-slide">
+              <img src="https://images.unsplash.com/photo-1571679654681-ba01b9e1e117?auto=format&fit=crop&w=1200&q=80" alt="Kandy Hills">
+              <div class="slider-overlay">
+                <h3>Kandy Annex</h3>
+                <p>Cool breezes and university access.</p>
+              </div>
+            </div>
+            <div class="slider-slide">
+              <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80" alt="Galle Coast">
+              <div class="slider-overlay">
+                <h3>Coastal Living</h3>
+                <p>Beachside workspaces for remote teams.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="slider-controls">
+            <button class="slider-btn" id="prevSlide" aria-label="Previous image">❮</button>
+            <button class="slider-btn" id="nextSlide" aria-label="Next image">❯</button>
+          </div>
+
+          <article class="feature-panel panel-floating">
+            <p class="panel-tag">Live Updates</p>
+            <strong>Over 120 properties</strong>
+            <span>added this month</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="featured-section" id="featured">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Featured stays</p>
+          <h2>Handpicked boarding places with clear pricing and professional presentation.</h2>
+        </div>
+
+        <div class="listing-grid">
+          <article class="listing-card reveal">
+            <div class="listing-image image-colombo"></div>
+            <div class="listing-content">
+              <div class="listing-topline">
+                <span>Colombo 05</span>
+                <strong>LKR 28,000/mo</strong>
+              </div>
+              <h3>Modern student boarding close to campus</h3>
+              <p>Private room, study desk, AC, high-speed Wi-Fi and meal options.</p>
+              <div class="listing-meta">
+                <span>2 beds</span>
+                <span>Attached bath</span>
+                <span>Verified host</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="listing-card reveal">
+            <div class="listing-image image-kandy"></div>
+            <div class="listing-content">
+              <div class="listing-topline">
+                <span>Kandy</span>
+                <strong>LKR 24,500/mo</strong>
+              </div>
+              <h3>Quiet hillside annex for professionals</h3>
+              <p>Independent entrance, pantry space, parking and calm surroundings.</p>
+              <div class="listing-meta">
+                <span>1 room</span>
+                <span>Pantry</span>
+                <span>Parking</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="listing-card reveal">
+            <div class="listing-image image-galle"></div>
+            <div class="listing-content">
+              <div class="listing-topline">
+                <span>Galle</span>
+                <strong>LKR 31,000/mo</strong>
+              </div>
+              <h3>Coastal boarding house with shared lounge</h3>
+              <p>Great for long stays, remote work and quick access to railway links.</p>
+              <div class="listing-meta">
+                <span>Sea breeze</span>
+                <span>Shared kitchen</span>
+                <span>Fiber internet</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="destinations-section" id="destinations">
+        <div class="destination-copy reveal">
+          <p class="eyebrow">Popular locations</p>
+          <h2>Search by city, university zone, workplace district, or station access.</h2>
+          <p>
+            LankaStay helps users compare neighborhoods with commute time, amenities, and host reliability
+            before arranging visits.
+          </p>
+        </div>
+
+        <div class="destination-grid">
+          <article class="destination-card reveal">
+            <strong>Colombo</strong>
+            <span>Business hubs, institutes, private annexes</span>
+          </article>
+          <article class="destination-card reveal">
+            <strong>Kandy</strong>
+            <span>University stays, hillside boarding, quiet lanes</span>
+          </article>
+          <article class="destination-card reveal">
+            <strong>Galle</strong>
+            <span>Coastal rooms, work-friendly spaces, rail access</span>
+          </article>
+          <article class="destination-card reveal">
+            <strong>Jaffna</strong>
+            <span>Long-stay options, family-run homes, city center links</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="why-section" id="why-us">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Why LankaStay</p>
+          <h2>A modern and professional way to discover boarding places in Sri Lanka.</h2>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="benefit-card reveal">
+            <h3>Verified property profiles</h3>
+            <p>Structured details, amenity checklists, and image-first presentation for easier decisions.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <h3>Clear monthly pricing</h3>
+            <p>Budget-friendly filters for students, interns, remote workers, and professionals.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <h3>Trusted host communication</h3>
+            <p>Direct inquiries, visit scheduling, and better context before contacting a host.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div>
+        <span class="footer-title">LankaStay</span>
+        <p>Professional boarding-place discovery designed for Sri Lanka.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">support@lankastay.lk</a>
+        <a href="#">Colombo, Sri Lanka</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
