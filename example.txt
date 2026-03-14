@@ -3,6 +3,5 @@
 </head>
 <body>
 <h1>Apples Oranges Grapes Pineapple.epa</h1>
-<h1>Apples Oranges Grapes Pineapple.one</h1>
 </body>
 </html>
